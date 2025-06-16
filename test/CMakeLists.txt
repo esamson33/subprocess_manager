@@ -1,0 +1,7 @@
+enable_testing()
+find_package(GTest REQUIRED)
+file(GLOB TEST_SOURCES CONFIGURE_DEPENDS "*.cpp")
+add_executable(run_tests ${TEST_SOURCES})
+target_link_libraries(run_tests PRIVATE GTest::gtest_main)
+include(GoogleTest)
+gtest_discover_tests(run_tests)
